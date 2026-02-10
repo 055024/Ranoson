@@ -24,9 +24,9 @@ export default function ResourceCard({ resource, onClick }: ResourceCardProps) {
     return (
         <div
             onClick={() => onClick(resource)}
-            className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden cursor-pointer hover:border-blue-500/50 transition-all hover:shadow-lg hover:shadow-blue-500/10 group"
+            className="glass-card rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-all group border border-slate-100"
         >
-            <div className="h-40 bg-slate-800 relative">
+            <div className="h-40 bg-slate-100 relative">
                 {resource.image_url ? (
                     <Image
                         src={resource.image_url}
@@ -40,14 +40,14 @@ export default function ResourceCard({ resource, onClick }: ResourceCardProps) {
                         <Icon size={48} />
                     </div>
                 )}
-                <div className="absolute top-2 right-2 bg-black/60 backdrop-blur px-2 py-1 rounded text-xs text-white uppercase font-bold flex items-center gap-1">
+                <div className="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs text-slate-700 uppercase font-bold flex items-center gap-1 shadow-sm">
                     <Icon size={12} />
                     {resource.resource_type}
                 </div>
             </div>
             <div className="p-4">
-                <h3 className="font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">{resource.title}</h3>
-                <p className="text-slate-400 text-sm line-clamp-2">{resource.description}</p>
+                <h3 className="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{resource.title}</h3>
+                <p className="text-slate-500 text-sm line-clamp-2">{resource.description}</p>
             </div>
         </div>
     );

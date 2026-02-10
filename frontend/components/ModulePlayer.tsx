@@ -69,7 +69,7 @@ export default function ModulePlayer({ steps, videoUrl, onStepSubmit }: ModulePl
   };
 
   return (
-    <div className="flex h-[600px] bg-slate-900 rounded-xl overflow-hidden border border-slate-700">
+    <div className="flex h-[600px] bg-white rounded-xl overflow-hidden border border-slate-200 shadow-lg">
       {/* Left: Media/Context */}
       <div className="w-1/2 bg-black relative flex items-center justify-center">
         {isMounted && videoUrl ? (
@@ -96,16 +96,16 @@ export default function ModulePlayer({ steps, videoUrl, onStepSubmit }: ModulePl
       </div>
 
       {/* Right: Instructions & Interaction */}
-      <div className="w-1/2 p-8 flex flex-col">
-        <h2 className="text-2xl font-bold text-white mb-4">{currentStep.title}</h2>
-        <div className="prose prose-invert mb-8 text-slate-300">
+      <div className="w-1/2 p-8 flex flex-col bg-white">
+        <h2 className="text-2xl font-bold text-slate-800 mb-4">{currentStep.title}</h2>
+        <div className="prose prose-slate mb-8 text-slate-600">
           <p>{currentStep.content}</p>
         </div>
 
         <div className="mt-auto">
           {currentStep.assignment ? (
-            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-              <label className="block text-sm font-medium text-slate-400 mb-2">
+            <div className="bg-slate-50 p-6 rounded-lg border border-slate-200">
+              <label className="block text-sm font-medium text-slate-500 mb-2">
                 {currentStep.assignment.question_text}
               </label>
               <div className="flex gap-2">
@@ -113,7 +113,7 @@ export default function ModulePlayer({ steps, videoUrl, onStepSubmit }: ModulePl
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  className="flex-1 bg-slate-900 border border-slate-600 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500"
+                  className="flex-1 bg-white border border-slate-300 rounded px-3 py-2 text-slate-800 focus:outline-none focus:border-blue-500"
                   placeholder="Enter your answer..."
                   disabled={feedback?.passed}
                 />
@@ -141,8 +141,8 @@ export default function ModulePlayer({ steps, videoUrl, onStepSubmit }: ModulePl
               </button>
             </div>
           ) : (
-            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-              <p className="text-slate-300 mb-4">Read the instructions above and proceed.</p>
+            <div className="bg-slate-50 p-6 rounded-lg border border-slate-200">
+              <p className="text-slate-600 mb-4">Read the instructions above and proceed.</p>
               <button
                 onClick={handleNext}
                 className="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded font-semibold"
@@ -153,11 +153,11 @@ export default function ModulePlayer({ steps, videoUrl, onStepSubmit }: ModulePl
           )}
 
           {/* Navigation Controls */}
-          <div className="flex justify-between mt-6 pt-6 border-t border-slate-800">
+          <div className="flex justify-between mt-6 pt-6 border-t border-slate-100">
             <button
               onClick={() => setCurrentStepIndex(prev => Math.max(0, prev - 1))}
               disabled={currentStepIndex === 0}
-              className="text-slate-400 hover:text-white disabled:opacity-30"
+              className="text-slate-400 hover:text-slate-600 disabled:opacity-30"
             >
               Previous
             </button>

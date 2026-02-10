@@ -201,10 +201,10 @@ export default function ModulePage() {
         const timeWarning = timeRemaining < 120; // Less than 2 minutes
 
         return (
-            <main className="min-h-screen bg-slate-950 p-6">
+            <main className="min-h-screen p-6 pb-24">
                 <div className="max-w-3xl mx-auto">
                     <header className="mb-8 text-center">
-                        <h1 className="text-3xl font-bold text-white mb-2">Final Assessment</h1>
+                        <h1 className="text-3xl font-bold text-slate-800 mb-2">Final Assessment</h1>
                         {!submitted && (
                             <div className={`text-2xl font-bold mb-2 ${timeWarning ? 'text-red-400 animate-pulse' : 'text-blue-400'}`}>
                                 ⏱️ Time Remaining: {timeString}
@@ -219,8 +219,8 @@ export default function ModulePage() {
 
                     <div className="space-y-6">
                         {quiz.map((q, idx) => (
-                            <div key={idx} className="bg-slate-900 rounded-xl p-6 border border-slate-800">
-                                <h3 className="text-lg font-semibold text-white mb-4">
+                            <div key={idx} className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                                <h3 className="text-lg font-semibold text-slate-800 mb-4">
                                     {idx + 1}. {q.question}
                                 </h3>
 
@@ -233,10 +233,10 @@ export default function ModulePage() {
                                                 className={`block p-3 rounded-lg border cursor-pointer transition-colors ${quizAnswers[idx] === opt
                                                     ? submitted
                                                         ? quizResults[idx]
-                                                            ? 'bg-green-900/30 border-green-500'
-                                                            : 'bg-red-900/30 border-red-500'
-                                                        : 'bg-blue-900/30 border-blue-500'
-                                                    : 'border-slate-700 hover:border-slate-600'
+                                                            ? 'bg-green-50 border-green-500 text-green-700'
+                                                            : 'bg-red-50 border-red-500 text-red-700'
+                                                        : 'bg-blue-50 border-blue-500 text-blue-700'
+                                                    : 'border-slate-200 hover:border-blue-300 hover:bg-slate-50'
                                                     } ${submitted ? 'cursor-not-allowed' : ''}`}
                                             >
                                                 <input
@@ -248,7 +248,7 @@ export default function ModulePage() {
                                                     disabled={submitted}
                                                     className="mr-3"
                                                 />
-                                                <span className="text-white">{opt}</span>
+                                                <span className="text-slate-700">{opt}</span>
                                             </label>
                                         ))}
                                     </div>
@@ -262,11 +262,11 @@ export default function ModulePage() {
                                         onChange={(e) => setQuizAnswers({ ...quizAnswers, [idx]: e.target.value })}
                                         disabled={submitted}
                                         placeholder={q.type === 'numerical' ? "Enter numerical answer" : "Type your answer here"}
-                                        className={`w-full bg-slate-800 border rounded-lg p-3 text-white ${submitted
+                                        className={`w-full bg-white border rounded-lg p-3 text-slate-800 ${submitted
                                             ? quizResults[idx]
                                                 ? 'border-green-500'
                                                 : 'border-red-500'
-                                            : 'border-slate-700'
+                                            : 'border-slate-200 focus:border-blue-500 outline-none'
                                             } ${submitted ? 'cursor-not-allowed' : ''}`}
                                     />
                                 )}
@@ -317,13 +317,13 @@ export default function ModulePage() {
     }
 
     return (
-        <main className="min-h-screen bg-slate-950 p-6">
+        <main className="min-h-screen p-6 pb-24">
             <div className="max-w-7xl mx-auto">
                 <header className="mb-6">
                     <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
-                            <h1 className="text-3xl font-bold text-white mb-2">{module.title}</h1>
-                            <p className="text-slate-400">{module.description}</p>
+                            <h1 className="text-3xl font-bold text-slate-800 mb-2">{module.title}</h1>
+                            <p className="text-slate-500">{module.description}</p>
                         </div>
                         <button
                             onClick={handleStepComplete}
@@ -343,9 +343,9 @@ export default function ModulePage() {
                     </div>
 
                     {module.objectives && (
-                        <div className="mt-4 bg-gradient-to-r from-red-900/80 to-red-800/80 rounded-xl p-4 border border-red-700">
-                            <h3 className="text-lg font-bold text-white mb-3">Objectives</h3>
-                            <div className="prose prose-invert prose-sm max-w-none">
+                        <div className="mt-4 bg-orange-50 rounded-xl p-4 border border-orange-200">
+                            <h3 className="text-lg font-bold text-orange-800 mb-3">Objectives</h3>
+                            <div className="prose prose-sm max-w-none text-slate-700">
                                 <ReactMarkdown>{module.objectives}</ReactMarkdown>
                             </div>
                         </div>
@@ -359,7 +359,7 @@ export default function ModulePage() {
                             key={idx}
                             className={`flex-1 h-2 rounded-full ${completedSteps.includes(idx) ? 'bg-green-500' :
                                 idx === currentStepIndex ? 'bg-blue-500' :
-                                    'bg-slate-700'
+                                    'bg-slate-200'
                                 }`}
                         />
                     ))}
@@ -368,7 +368,7 @@ export default function ModulePage() {
                 {currentStep && (
                     <div className="space-y-6">
                         {/* Video Player */}
-                        <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                        <div className="bg-black rounded-xl overflow-hidden shadow-lg">
                             {currentStep.media_url ? (
                                 <video
                                     key={currentStep.media_url}
@@ -384,9 +384,9 @@ export default function ModulePage() {
                         </div>
 
                         {/* Content */}
-                        <div className="bg-gradient-to-r from-green-900/80 to-green-800/80 rounded-xl p-6 border border-green-700">
-                            <h2 className="text-2xl font-bold text-white mb-4">{currentStep.title}</h2>
-                            <div className="prose prose-invert prose-sm max-w-none mb-6">
+                        <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                            <h2 className="text-2xl font-bold text-slate-800 mb-4">{currentStep.title}</h2>
+                            <div className="prose prose-slate prose-sm max-w-none mb-6">
                                 <ReactMarkdown>{currentStep.content}</ReactMarkdown>
                             </div>
 

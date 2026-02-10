@@ -23,7 +23,7 @@ export default function Navigation() {
 
     return (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm sm:max-w-md animate-fade-in-up">
-            <nav className="glass-panel rounded-2xl flex items-center justify-between px-6 py-4 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10">
+            <nav className="glass-panel rounded-2xl flex items-center justify-between px-6 py-4 shadow-xl border border-white/40 bg-white/80 backdrop-blur-xl">
                 {navItems.map((item) => {
                     const isActive = pathname === item.href;
 
@@ -35,7 +35,7 @@ export default function Navigation() {
                         >
                             <div className={clsx(
                                 "relative flex items-center justify-center p-2 rounded-xl transition-all duration-300",
-                                isActive ? "text-blue-400 bg-white/10 shadow-[0_0_15px_rgba(56,189,248,0.3)]" : "text-slate-400 group-hover:text-white"
+                                isActive ? "text-white bg-[#1572FE] shadow-lg shadow-blue-500/30" : "text-slate-400 group-hover:text-[#1572FE]"
                             )}>
                                 <item.icon size={24} strokeWidth={isActive ? 2.5 : 2} />
                             </div>
@@ -47,7 +47,7 @@ export default function Navigation() {
                 })}
 
                 {/* Profile Link separate or explicitly added */}
-                <button className="group flex flex-col items-center gap-1 relative text-slate-400 hover:text-white transition-colors">
+                <button className="group flex flex-col items-center gap-1 relative text-slate-400 hover:text-[#1572FE] transition-colors">
                     <div className="relative flex items-center justify-center p-2 rounded-xl">
                         <User size={24} />
                     </div>

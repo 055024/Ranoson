@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} antialiased text-slate-900 dark:text-white transition-colors duration-300`}
+        className={`${outfit.variable} antialiased transition-colors duration-300`}
       >
         <ThemeProvider>
           <AuthProvider>

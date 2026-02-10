@@ -39,84 +39,84 @@ export default function AdminDashboard() {
             {/* Header */}
             <header className="flex justify-between items-end mb-10 animate-fade-in-up">
                 <div>
-                    <p className="text-slate-400 text-lg font-medium tracking-wide mb-1 opacity-90">Welcome back</p>
-                    <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 text-glow tracking-tight">Admin</h1>
-                    <p className="text-slate-400 mt-2">Manage users, courses, and system settings.</p>
+                    <p className="text-slate-500 text-lg font-medium tracking-wide mb-1 opacity-90">Welcome back</p>
+                    <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-400 text-glow tracking-tight">Admin</h1>
+                    <p className="text-slate-500 mt-2">Manage users, courses, and system settings.</p>
                 </div>
             </header>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                <div className="glass-card p-6 rounded-3xl flex flex-col items-start gap-3 hover:bg-slate-800/60 transition-colors border border-transparent">
+                <div className="glass-card p-6 rounded-3xl flex flex-col items-start gap-3 hover:shadow-lg transition-all border border-slate-100">
                     <div className="flex items-center justify-between w-full mb-2">
-                        <div className="h-12 w-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shadow-lg shadow-blue-500/10">
+                        <div className="h-12 w-12 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center shadow-sm">
                             <Users size={24} />
                         </div>
-                        <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 shadow-sm">+12%</span>
+                        <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-100 shadow-sm">+12%</span>
                     </div>
-                    <h3 className="text-slate-400 text-sm font-medium tracking-wide">Total Users</h3>
-                    <p className="text-4xl font-bold text-white tracking-tight">{stats.totalUsers}</p>
+                    <h3 className="text-slate-500 text-sm font-medium tracking-wide">Total Users</h3>
+                    <p className="text-4xl font-bold text-slate-800 tracking-tight">{stats.totalUsers}</p>
                 </div>
 
-                <div className="glass-card p-6 rounded-3xl flex flex-col items-start gap-3 hover:bg-slate-800/60 transition-colors border border-transparent">
+                <div className="glass-card p-6 rounded-3xl flex flex-col items-start gap-3 hover:shadow-lg transition-all border border-slate-100">
                     <div className="flex items-center justify-between w-full mb-2">
-                        <div className="h-12 w-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shadow-lg shadow-purple-500/10">
+                        <div className="h-12 w-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center shadow-sm">
                             <BookOpen size={24} />
                         </div>
-                        <span className="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-lg border border-blue-500/20 shadow-sm">New</span>
+                        <span className="text-[10px] font-bold text-blue-500 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100 shadow-sm">New</span>
                     </div>
-                    <h3 className="text-slate-400 text-sm font-medium tracking-wide">Total Courses</h3>
-                    <p className="text-4xl font-bold text-white tracking-tight">{stats.totalModules}</p>
+                    <h3 className="text-slate-500 text-sm font-medium tracking-wide">Total Courses</h3>
+                    <p className="text-4xl font-bold text-slate-800 tracking-tight">{stats.totalModules}</p>
                 </div>
 
-                <div className="glass-card p-6 rounded-3xl flex flex-col items-start gap-3 hover:bg-slate-800/60 transition-colors border border-transparent">
+                <div className="glass-card p-6 rounded-3xl flex flex-col items-start gap-3 hover:shadow-lg transition-all border border-slate-100">
                     <div className="flex items-center justify-between w-full mb-2">
-                        <div className="h-12 w-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/10">
+                        <div className="h-12 w-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center shadow-sm">
                             <Activity size={24} />
                         </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-slate-700/50 px-2.5 py-1 rounded-lg border border-slate-600/50 shadow-sm">Now</span>
+                        <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">Now</span>
                     </div>
-                    <h3 className="text-slate-400 text-sm font-medium tracking-wide">Active Users</h3>
-                    <p className="text-4xl font-bold text-white tracking-tight">{stats.activeUsers}</p>
+                    <h3 className="text-slate-500 text-sm font-medium tracking-wide">Active Users</h3>
+                    <p className="text-4xl font-bold text-slate-800 tracking-tight">{stats.activeUsers}</p>
                 </div>
             </div>
 
             {/* Quick Actions */}
-            <h2 className="text-xs font-bold text-blue-400 uppercase tracking-[0.2em] mb-5 ml-2 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>Quick Actions</h2>
+            <h2 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-5 ml-2 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>Quick Actions</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                <Link href="/admin/modules/new" className="group glass-card p-6 rounded-3xl flex items-center justify-between hover:bg-slate-800/60 transition-all duration-300 border border-transparent hover:border-slate-700/50 hover:shadow-xl hover:-translate-y-1">
+                <Link href="/admin/modules/new" className="group glass-card p-6 rounded-3xl flex items-center justify-between hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100">
                     <div className="flex items-center gap-5">
-                        <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                        <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
                             <Plus size={28} />
                         </div>
                         <div>
-                            <h3 className="font-bold text-xl text-white group-hover:text-blue-300 transition-colors">Create Course</h3>
-                            <p className="text-sm text-slate-400">Add video content & steps</p>
+                            <h3 className="font-bold text-xl text-slate-800 group-hover:text-blue-600 transition-colors">Create Course</h3>
+                            <p className="text-sm text-slate-500">Add video content & steps</p>
                         </div>
                     </div>
-                    <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-blue-500/20 group-hover:text-blue-300 transition-all">
+                    <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-all border border-slate-100">
                         <ArrowRight size={20} />
                     </div>
                 </Link>
 
-                <Link href="/admin/users" className="group glass-card p-6 rounded-3xl flex items-center justify-between hover:bg-slate-800/60 transition-all duration-300 border border-transparent hover:border-slate-700/50 hover:shadow-xl hover:-translate-y-1">
+                <Link href="/admin/users" className="group glass-card p-6 rounded-3xl flex items-center justify-between hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100">
                     <div className="flex items-center gap-5">
-                        <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-800 text-slate-300 flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300 border border-slate-600">
+                        <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-800 text-white flex items-center justify-center shadow-lg shadow-slate-900/10 group-hover:scale-110 transition-transform duration-300">
                             <Users size={28} />
                         </div>
                         <div>
-                            <h3 className="font-bold text-xl text-white group-hover:text-slate-300 transition-colors">Manage Users</h3>
-                            <p className="text-sm text-slate-400">Add users & assign roles</p>
+                            <h3 className="font-bold text-xl text-slate-800 group-hover:text-slate-600 transition-colors">Manage Users</h3>
+                            <p className="text-sm text-slate-500">Add users & assign roles</p>
                         </div>
                     </div>
-                    <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-white/10 group-hover:text-white transition-all">
+                    <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-100 group-hover:text-slate-600 transition-all border border-slate-100">
                         <ArrowRight size={20} />
                     </div>
                 </Link>
             </div>
 
             {/* Courses List */}
-            <h2 className="text-xs font-bold text-blue-400 uppercase tracking-[0.2em] mb-5 ml-2 mt-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>Manage Courses</h2>
+            <h2 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-5 ml-2 mt-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>Manage Courses</h2>
             <CoursesList />
         </main>
     );
@@ -147,13 +147,13 @@ function CoursesList() {
     }, [token]);
 
     if (loading) {
-        return <div className="text-slate-400">Loading courses...</div>;
+        return <div className="text-slate-500 text-center py-8">Loading courses...</div>;
     }
 
     if (courses.length === 0) {
         return (
-            <div className="glass-card p-8 rounded-3xl text-center">
-                <p className="text-slate-400">No courses created yet. Create your first course!</p>
+            <div className="glass-card p-8 rounded-3xl text-center border-dashed border-2 border-slate-200 bg-slate-50/50">
+                <p className="text-slate-500">No courses created yet. Create your first course!</p>
             </div>
         );
     }
@@ -161,23 +161,23 @@ function CoursesList() {
     return (
         <div className="space-y-4 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             {courses.map((course) => (
-                <div key={course.id} className="glass-card p-6 rounded-3xl hover:bg-slate-800/60 transition-all border border-transparent hover:border-slate-700/50">
+                <div key={course.id} className="glass-card p-6 rounded-3xl hover:shadow-md transition-all border border-slate-100">
                     <div className="flex items-start justify-between">
                         <div className="flex-1">
-                            <h3 className="text-xl font-bold text-white mb-2">{course.title}</h3>
-                            <p className="text-slate-400 text-sm mb-3">{course.description}</p>
+                            <h3 className="text-xl font-bold text-slate-800 mb-2">{course.title}</h3>
+                            <p className="text-slate-500 text-sm mb-3">{course.description}</p>
                             <div className="flex items-center gap-4 text-xs">
                                 {course.is_processing && (
-                                    <span className="text-yellow-400 bg-yellow-500/10 px-3 py-1 rounded-lg border border-yellow-500/20">
+                                    <span className="text-amber-600 bg-amber-50 px-3 py-1 rounded-lg border border-amber-200 font-medium">
                                         ⏳ Processing...
                                     </span>
                                 )}
-                                <span className="text-slate-500">{course.steps?.length || 0} modules</span>
+                                <span className="text-slate-400 font-medium">{course.steps?.length || 0} modules</span>
                             </div>
                         </div>
                         <Link
                             href={`/admin/courses/${course.id}/edit`}
-                            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors"
+                            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors shadow-lg shadow-blue-500/20"
                         >
                             Edit Course
                         </Link>

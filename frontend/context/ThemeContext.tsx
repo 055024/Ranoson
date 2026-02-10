@@ -10,14 +10,14 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-    theme: 'dark',
+    theme: 'light',
     toggleTheme: () => { },
 });
 
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>('dark');
+    const [theme, setTheme] = useState<Theme>('light');
 
     useEffect(() => {
         // Check local storage or system preference
@@ -25,7 +25,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         if (storedTheme) {
             setTheme(storedTheme);
         } else {
-            setTheme('dark'); // Default to dark for this app
+            setTheme('light'); // Default to light for this app
         }
     }, []);
 

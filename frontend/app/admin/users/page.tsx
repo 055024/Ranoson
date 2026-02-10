@@ -139,11 +139,11 @@ export default function UserManagement() {
         <main className="min-h-screen pb-32 pt-8 px-5 lg:max-w-4xl mx-auto transition-colors duration-300">
             <header className="mb-8 flex justify-between items-end animate-fade-in-up">
                 <div>
-                    <Link href="/admin" className="text-slate-400 hover:text-white mb-2 inline-flex items-center gap-1 text-sm transition-colors">
+                    <Link href="/admin" className="text-slate-500 hover:text-slate-800 mb-2 inline-flex items-center gap-1 text-sm transition-colors">
                         &larr; Back to Dashboard
                     </Link>
-                    <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 text-glow tracking-tight">User Management</h1>
-                    <p className="text-slate-400 mt-1">Add and manage system users.</p>
+                    <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-400 text-glow tracking-tight">User Management</h1>
+                    <p className="text-slate-500 mt-1">Add and manage system users.</p>
                 </div>
                 <button
                     onClick={() => setShowAddModal(true)}
@@ -154,41 +154,41 @@ export default function UserManagement() {
             </header>
 
             {/* Search Bar */}
-            <div className="glass-panel p-4 rounded-2xl mb-6 flex items-center gap-3 border border-white/10 shadow-lg animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <div className="glass-panel p-4 rounded-2xl mb-6 flex items-center gap-3 border border-slate-200 shadow-sm animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 <Search className="text-slate-400" size={20} />
                 <input
                     type="text"
                     placeholder="Search users..."
-                    className="flex-1 bg-transparent outline-none text-white placeholder:text-slate-500"
+                    className="flex-1 bg-transparent outline-none text-slate-800 placeholder:text-slate-400"
                 />
             </div>
 
             {/* Users List */}
-            <div className="glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="glass-panel rounded-2xl overflow-hidden border border-slate-200 shadow-sm animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <table className="w-full text-left border-collapse">
-                    <thead className="bg-white/5 border-b border-white/5">
+                    <thead className="bg-slate-50 border-b border-slate-100">
                         <tr>
-                            <th className="p-5 text-xs font-bold text-slate-400 uppercase tracking-wider">Employee</th>
-                            <th className="p-5 text-xs font-bold text-slate-400 uppercase tracking-wider">Role</th>
-                            <th className="p-5 text-xs font-bold text-slate-400 uppercase tracking-wider">Status</th>
-                            <th className="p-5 text-xs font-bold text-slate-400 uppercase tracking-wider text-right">Actions</th>
+                            <th className="p-5 text-xs font-bold text-slate-500 uppercase tracking-wider">Employee</th>
+                            <th className="p-5 text-xs font-bold text-slate-500 uppercase tracking-wider">Role</th>
+                            <th className="p-5 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+                            <th className="p-5 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-white/5">
+                    <tbody className="divide-y divide-slate-100">
                         {users.map((user) => (
-                            <tr key={user.id} className="hover:bg-white/5 transition-colors group">
+                            <tr key={user.id} className="hover:bg-slate-50 transition-colors group">
                                 <td className="p-5">
                                     <div className="flex items-center gap-4">
-                                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center text-slate-300 shadow-inner border border-slate-600">
+                                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-500 shadow-sm border border-slate-200">
                                             <User size={20} />
                                         </div>
-                                        <span className="font-bold text-slate-200 group-hover:text-white transition-colors">{user.employee_code}</span>
+                                        <span className="font-bold text-slate-700 group-hover:text-blue-600 transition-colors">{user.employee_code}</span>
                                     </div>
                                 </td>
                                 <td className="p-5">
                                     <div className="flex items-center gap-2">
-                                        <Shield size={16} className={user.role_id === 1 ? "text-amber-400" : "text-blue-400"} />
-                                        <span className="text-slate-400 text-sm font-medium">
+                                        <Shield size={16} className={user.role_id === 1 ? "text-amber-500" : "text-blue-500"} />
+                                        <span className="text-slate-600 text-sm font-medium">
                                             {user.role_id === 1 ? 'Admin' : user.role_id === 2 ? 'Quality Check' : 'Operator'}
                                         </span>
                                     </div>
@@ -203,12 +203,12 @@ export default function UserManagement() {
                                 <td className="p-5 text-right">
                                     <button
                                         onClick={() => openAssignModal(user.id)}
-                                        className="h-8 w-8 rounded-lg flex items-center justify-center text-slate-500 hover:text-blue-400 hover:bg-blue-500/10 transition-all mr-2"
+                                        className="h-8 w-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all mr-2"
                                         title="Assign Module"
                                     >
                                         <BookOpen size={18} />
                                     </button>
-                                    <button className="h-8 w-8 rounded-lg flex items-center justify-center text-slate-500 hover:text-red-400 hover:bg-red-500/10 transition-all">
+                                    <button className="h-8 w-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-red-600 hover:bg-red-50 transition-all">
                                         <Trash2 size={18} />
                                     </button>
                                 </td>
